@@ -3,7 +3,7 @@ d=[]
 for i in range(19):#19번 반복
     d.append([])#중복 리스트 생성
     for j in range(19):
-        d[i].append(0)#d[-1]에 0추가
+        d[i].append(0)#d[i]에 0추가
 
 for i in range(19):
     d[i]=list(map(int,input().split()))# 바둑판 입력
