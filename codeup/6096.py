@@ -1,17 +1,30 @@
-n=int(input())
-d = [[0 for _ in range(19)] for _ in range(19)]
-for i in range(n):#n번 반복하기
-    x,y=input().split()
-    x -= 1  # 1-based에서 0-based로 변환
-    y -= 1  # 1-based에서 0-based로 변환
-    for j in range(1,20):#1부터 19까지 반복
-        if d[j][int(y)]==0:
-            d[j][int(y)]=1#만약 d[j][int[y]]의 값이 0이라면 이 값에 1을 저장
-        else:
-            d[j][int(y)]=0#아니면 0 저장
-        if d[int(x)][j]==0:
-            d[int(x)][j]=1#만약 d[int(x)][j]의 값이 0이라면 1 저장
-        else:
-            d[int(x)][j]=0#아니면 0 저장
+d=[]
+
+for i in range(19):#19번 반복
+    d.append([])#중복 리스트 생성
+    for j in range(19):
+        d[i].append(0)#d[-1]에 0추가
+
 for i in range(19):
-    print(' '.join(map(str, d[i])))
+    d[i]=list(map(int,input().split()))# 바둑판 입력
+    
+n=int(input())
+
+for i in range(n):#n번 반복하기
+    x,y=map(int,input().split())#x,y 값 입력
+    for j in range(19):
+        if d[x-1][j]==0:
+            d[x-1][j]=1#만약 가로가 0이면 1 저장
+        else:
+            d[x-1][j]=0#아니면 0 저장하기
+        if d[j][y-1]==0:
+            d[j][y-1]=1
+        else:
+            d[j][y-1]=0 #세로에 저장
+            
+for i in range(19): #19번 반복
+    for j in range(19):
+        print(d[i][j], end=' ')#줄 비꿈 없이 출력하기
+    print()    
+        
+        
