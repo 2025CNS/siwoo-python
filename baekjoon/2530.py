@@ -1,0 +1,9 @@
+A,B,C=map(int,input().split())
+D=int(input())
+A*=3600
+B*=60
+S=A+B+C+D
+hour=(S//3600)%24
+min=(S%3600)//60
+sec=S%60
+print(hour,min,sec)
